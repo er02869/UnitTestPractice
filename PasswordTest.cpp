@@ -14,9 +14,7 @@ class PasswordTest : public ::testing::Test
 		virtual void TearDown(){} //clean up after each test, (before destructor)
 };
 
-TEST(PasswordTest, single_letter_password)
-{
-	Password my_password;
-	int actual = my_password.count_leading_characters("Z");
-	ASSERT_EQ(1, actual);
-}
+TEST(PasswordTest, single_letter_password) { Password my_password; ASSERT_EQ(1, my_password.count_leading_characters("Z")); } 
+TEST(PasswordTest, empty_letter_password)  { Password my_password; ASSERT_EQ(0, my_password.count_leading_characters("")); } 
+TEST(PasswordTest, triple_letter_password) { Password my_password; ASSERT_EQ(3, my_password.count_leading_characters("ZZZ")); } 
+TEST(PasswordTest, mixed_letter_password)  { Password my_password; ASSERT_EQ(2, my_password.count_leading_characters("ZA")); }
